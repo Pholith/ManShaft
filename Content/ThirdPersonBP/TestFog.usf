@@ -1,0 +1,24 @@
+// RayMarchFog CMOT Float 4
+
+float3 lightvec = normalize(float3(0.687334,0.506979,-0.520138));
+float stepsize=100;
+float numsteps=50;
+float mul=0.0;
+float4 sum={0,0,0,0};
+for(int i=0;i<numsteps;i++)
+{
+if( sum.a > 1) break;
+float rt=stepsizemul(1+(dither/2-0.25));
+float3 pos=rtrd+ro;
+if(rt>scenedepth) break;
+float3 noisepos1=pos.zxy+float3(300t,100sin(t/20),100sin(t/60));
+float dens=clamp(MaterialExpressionNoise(noisepos1/500, 0.10000000, 0.00000000, 0.00000000, 1.00000000, 2.00000000, -0.10000000, 1.00000000, 2.00000000, 0.00000000)/3,0,1);
+float4 col=float4(dens,dens,dens,dens)fogcol;
+float dif=clamp(MaterialExpressionNoise((noisepos1+lightvec100)/500, 0.10000000, 0.00000000, 0.00000000, 1.00000000, 2.00000000, -0.100000000, 1.00000000, 2.00000000, 0.00000000)/3,0,1);
+col.xyz+=dif;
+col.rgb*=col.a;
+sum=sum+col*(1.0-sum.a);
+mul+=1.0;
+if (mul>49) sum.a=1;
+}
+return clamp(sum,0,1);
