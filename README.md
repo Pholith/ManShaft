@@ -1,1 +1,1 @@
-[Vidéo du projet](./2022-04-15.mkv){embed controls}
+<video src="https://github.com/Pholith/ManShaft/blob/main/2022-04-15.mkv" controls></video>
