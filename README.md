@@ -1,2 +1,1 @@
-
-<video src="./2022-04-15.mkv" controls></video>
+[Vidéo du projet](./2022-04-15.mkv){embed controls}
